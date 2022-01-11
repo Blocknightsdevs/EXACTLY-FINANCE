@@ -261,7 +261,7 @@ contract Rewards {
         balanceOfDeposits+=msg.value;
     }
 
-    function calculateRewards(depositStruct memory _deposit,rewardsStruct memory _reward) public pure returns(uint256){
+    function calculateRewards(depositStruct memory _deposit,rewardsStruct memory _reward) internal pure returns(uint256){
         //reward taking into account percentage of pool
         uint256 _amount = _reward.amount.mul(_deposit.amount).div(_reward.balanceOfDeposits);
         return _amount;
