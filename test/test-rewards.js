@@ -33,6 +33,26 @@ describe("Rewards", function () {
 
   });
 
+  it("Should wirthdraw without reward", async function () {
+    
+    const accounts = await ethers.getSigners()
+    const Rewards = await ethers.getContractFactory("Rewards");
+    const account = await accounts[0].getAddress()
+    const rewards = await Rewards.deploy(account);
+    await rewards.deployed();
+
+    await rewards.deposit({value: ethers.utils.parseEther("1.0")});
+    
+    let beforeWirthdraw = await ethers.provider.getBalance(account);
+    let tx = await rewards.wirthdraw();
+    let afterWirthdraw = await ethers.provider.getBalance(account);
+
+    const receipt = await tx.wait();
+
+    expect(afterWirthdraw.add(receipt.gasUsed*receipt.effectiveGasPrice)).to.eq(beforeWirthdraw.add(ethers.utils.parseEther("1")));
+
+  });
+
   it("Should wirthdraw expected amount", async function () {
     //for time increase https://ethereum.stackexchange.com/questions/86633/time-dependent-tests-with-hardhat
     //'connect' https://hardhat.org/tutorial/testing-contracts.html#using-a-different-account
@@ -118,6 +138,7 @@ describe("Rewards", function () {
 
     await rewards.deployed();
 
+    //not team
     await rewards.deposit({value: ethers.utils.parseEther("1.0")});
   
      

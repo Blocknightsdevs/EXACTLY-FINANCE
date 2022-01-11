@@ -10,6 +10,15 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   }
 });
 
+task("balance", "Prints contract balance",async (taskArgs, hre) => {
+  
+    const contractAddress = "0xAe120F0df055428E45b264E7794A18c54a2a3fAF";
+    let balance = await hre.ethers.provider.getBalance(contractAddress); 
+
+    console.log(balance);
+  });
+
+
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more
 

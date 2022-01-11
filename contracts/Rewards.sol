@@ -272,12 +272,14 @@ contract Rewards {
         depositStruct[] memory deposits = userDeposits[msg.sender];
         uint256 amount=0;
         for(uint256 i=0;i<deposits.length;i++){
+            if(deposits[i].sent) continue;
+            amount+=deposits[i].amount;
             for(uint256 j=0;j<rewards.length;j++){
                 if(deposits[i].date < rewards[j].date && deposits[i].epoch == rewards[j].epoch && deposits[i].sent==false){
-                    amount+=deposits[i].amount+calculateRewards(deposits[i],rewards[j]);
-                    userDeposits[msg.sender][i].sent = true;
+                    amount+=calculateRewards(deposits[i],rewards[j]);
                 }
             }
+            userDeposits[msg.sender][i].sent = true;
         }
         
         address payable receiver = payable(msg.sender);
