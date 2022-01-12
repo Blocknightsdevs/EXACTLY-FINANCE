@@ -10,7 +10,7 @@ async function main() {
   const Rewards = await hre.ethers.getContractFactory("Rewards");
   
   const accounts = await ethers.getSigners()
-  const team = await accounts[1].getAddress()
+  const team = await accounts[0].getAddress()
   const rewards = await Rewards.deploy(team);
 
   await rewards.deployed();
