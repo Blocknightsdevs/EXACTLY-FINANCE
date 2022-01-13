@@ -2,7 +2,7 @@
 
 ## Supuestos:
 
-- Los retiros son totales (un usuario, una vez que se hace el deposito de recompensas, puede retirar todo el dinero cuando lo desee, como se ve en los ejemplos).
+- Los retiros son totales e inmediatos (un usuario, una vez que se hace el deposito de recompensas, puede retirar todo el dinero cuando lo desee, como se ve en los ejemplos).
 - Los depositos de recompensas se hacen cada 7 dias, por lo que se hace un chequeo que entre deposito y deposito haya al menos 604799 segundos (7 dias - 1 segundo), podria haberse puesto 6 dias tambien, pero crei conveniente tener algun control para esto.
 - Un usuario puede realizar varios depositos dentro de una misma "epoca" (intervalo entre un deposito y otro), que entraran en el siguiente deposito de recompensas.
 
