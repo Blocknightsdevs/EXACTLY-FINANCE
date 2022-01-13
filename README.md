@@ -1,15 +1,15 @@
-# Basic Sample Hardhat Project
+# Proyecto desafio para posicion solidity dev.
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+# Supuestos:
 
-Try running some of the following tasks:
+1 Los retiros son totales (un usuario, una vez que se hace el deposito de recompensas, puede retirar todo el dinero cuando lo desee, como se ve en los ejemplos).
+2 Los depositos de recompensas se hacen cada 7 dias, por lo que se hace un chequeo que entre deposito y deposito haya al menos 604799 segundos (7 dias - 1 segundo), podria haberse puesto 6 dias tambien, pero crei conveniente tener algun control para esto.
+3 No se puede depositar recompensas si no hay depositos de usuarios (nadie podria sacarlos, ya que segun el ejemplo solo pueden sacarlo los que depositaron antes de la recompensa)
+4 Un usuario puede realizar varios depositos dentro de una misma "epoca" (intervalo entre un deposito y otro), que entraran en el siguiente deposito de recompensas.
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
-```
+# Informacion relevante
+
+Direccion rinkeby: 0x9940B95cDAE949D50DbD8817C2Da19be7Ec49E7a
+Comando hardhat para saber balance de contrato: npx hardhat balance
+
+
