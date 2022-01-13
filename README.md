@@ -12,3 +12,11 @@
 - Comando hardhat para saber balance de contrato: npx hardhat balance
 
 
+## Instalacion y prueba
+
+- npm i (instalacion dependencias)
+- npx hardhat node (iniciar nodo local)
+- npx hardhat test --network localhost (hacer tests en localhost)
+- npx hardhat balance (mostrar balance en rinkeby, se puede modificar la direccion del contrato en hardhat.config para apuntar a donde se desee)
+
+
