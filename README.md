@@ -8,7 +8,7 @@
 
 ## Informacion relevante
 
-Direccion rinkeby: 0x9940B95cDAE949D50DbD8817C2Da19be7Ec49E7a
-Comando hardhat para saber balance de contrato: npx hardhat balance
+- Direccion rinkeby: 0x9940B95cDAE949D50DbD8817C2Da19be7Ec49E7a
+- Comando hardhat para saber balance de contrato: npx hardhat balance
 
 
